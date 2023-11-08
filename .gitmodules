@@ -1,0 +1,3 @@
+[submodule "black-dashboard-laravel"]
+	path = black-dashboard-laravel
+	url = https://github.com/WillianRomero33/MONTRAC.git
