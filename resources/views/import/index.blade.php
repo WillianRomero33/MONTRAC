@@ -1,7 +1,8 @@
-@extends('layouts.app', ['pageSlug' => 'dashboard'])
+@extends('layouts.app', ['pageSlug' => 'import'])
 
 @section('content')
 <a href="{{ route('imports.create') }}" class="btn btn-fill btn-round btn-primary mb-5">Nuevo</a>
+<a href="{{ route('imports.report') }}" class="btn btn-fill btn-round btn-primary mb-5 ml-2">Reporte</a>
 <div class="row">
   <div class="col-md-12">
     <div class="card ">

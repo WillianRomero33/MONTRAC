@@ -1,4 +1,4 @@
-@extends('layouts.app', ['pageSlug' => 'dashboard'])
+@extends('layouts.app', ['pageSlug' => 'aduana'])
 {{-- Creacion de un diccionario para imprimir el texto de los selectivos --}}
 @php
   $selectText = array(

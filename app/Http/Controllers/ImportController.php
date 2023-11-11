@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\TransportStatus;
 use App\Models\Transport;
 use App\Models\OriginDetail;
+use Barryvdh\DomPDF\Facade\Pdf; //Import DOMPDF library
 
 class ImportController extends Controller
 {
@@ -15,7 +16,8 @@ class ImportController extends Controller
     public function index()
     {
         //
-        $transports = TransportStatus::orderByDesc('inicio_transito')->paginate(7);
+        $transports = TransportStatus::orderByDesc('inicio_transito')
+                        ->paginate(7);
         return view('import.index', compact('transports'));
     }
 
@@ -26,7 +28,7 @@ class ImportController extends Controller
     {
         //
         $medios = Transport::all();
-        $origins = OriginDetail::all();
+        $origins = OriginDetail::orderBy('id_empresa')->get();
         return view('import.create', compact('medios','origins'));
     }
 
@@ -50,7 +52,7 @@ class ImportController extends Controller
     {
         //
         $medios = Transport::all();
-        $origins = OriginDetail::all();
+        $origins = OriginDetail::orderBy('id_empresa')->get();
         $transport = TransportStatus::find($id);
         return view('import.edit', compact('transport','medios','origins'));
     }
@@ -84,8 +86,17 @@ class ImportController extends Controller
         //
         $transport = TransportStatus::find($id);
         $transport->inicio_selectivo = now();
-        $transport->estado = "Espera de Selectividad";
+        $transport->estado = "Espera de Selectivo";
         $transport->update(); 
         return redirect()->route('imports.index');
+    }
+
+    public function report()
+    {
+        //
+        $transports = TransportStatus::orderByDesc('inicio_transito')->get();
+        $pdf = Pdf::loadView('import.report', compact('transports'));
+        $pdf->setPaper('A4','landscape');
+        return $pdf->stream('archivo.pdf');
     }
 }

@@ -17,7 +17,7 @@ use App\Http\Controllers\AduanaController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Auth::routes();
 
@@ -56,6 +56,7 @@ Route::resource('import', ImportController::class)
 		'submit' => 'imports.submit',
 ]);
 Route::get('import/submit/{id}', [ImportController::class, 'submit'])->name('imports.submit');
+Route::get('import/report', [ImportController::class, 'report'])->name('imports.report');
 
 Route::resource('aduana', AduanaController::class)
 	->only(['index', 'create', 'store', 'report', 'edit', 'update', 'destroy', 'submit'])
