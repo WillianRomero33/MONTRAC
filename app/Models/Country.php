@@ -10,7 +10,7 @@ class Country extends Model
     use HasFactory;
     protected $fillable = ['pais'];
 
-    public function companies(){
-        return $this->hasMany(Company::class);
+    public function origins(){
+        return $this->hasMany(OriginDetail::class, 'id_pais');
     }
 }

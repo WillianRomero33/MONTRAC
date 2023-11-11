@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreign('id_transport')->references('id')->on('transports');
             $table->bigInteger('id_origindetail')->unsigned();
             $table->foreign('id_origindetail')->references('id')->on('origin_details');
+            $table->smallinteger('selectivo')->nullable();
             $table->dateTime('inicio_transito')->nullable();
             $table->dateTime('fin_transito')->nullable();
             $table->dateTime('inicio_selectivo')->nullable();

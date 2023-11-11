@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ImportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,3 +42,16 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });
 
+Route::resource('import', ImportController::class)
+	->only(['index', 'create', 'store', 'report', 'edit', 'update', 'destroy', 'submit'])
+	->names([
+		'index' => 'imports.index',
+		'create' => 'imports.create',
+		'store' => 'imports.store',
+		'report' => 'imports.report',
+		'edit' => 'imports.edit',
+		'update' => 'imports.update',
+		'destroy' => 'imports.destroy',
+		'submit' => 'imports.submit',
+]);
+Route::get('import/submit/{id}', [ImportController::class, 'submit'])->name('imports.submit');

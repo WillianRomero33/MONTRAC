@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Company extends Model
 {
     use HasFactory; 
-    protected $fillable = ['Empresa'];
+    protected $fillable = ['empresa'];
 
-    public function country(){
-        return $this->belongsTo(Country::class);
+    public function origins(){
+        return $this->hasMany(OriginDetail::class, 'id_empresa');
     }
 }

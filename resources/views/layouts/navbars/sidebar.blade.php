@@ -6,7 +6,7 @@
         </div>
         <ul class="nav">
             <li @if ($pageSlug == 'dashboard') class="active " @endif>
-                <a href="{{ route('home') }}">
+                <a href="{{ route('imports.index') }}">
                     <i class="tim-icons icon-chart-pie-36"></i>
                     <p>{{ __('Dashboard') }}</p>
                 </a>
@@ -26,12 +26,12 @@
                                 <p>{{ __('User Profile') }}</p>
                             </a>
                         </li>
-                        <li @if ($pageSlug == 'users') class="active " @endif>
+                        {{-- <li @if ($pageSlug == 'users') class="active " @endif>
                             <a href="{{ route('user.index')  }}">
                                 <i class="tim-icons icon-bullet-list-67"></i>
                                 <p>{{ __('User Management') }}</p>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
             </li>
