@@ -20,6 +20,7 @@ class TransportStatusFactory extends Factory
             //
             'id_transport'=> $this->faker->numberBetween($min = 1, $max = 20),
             'id_origindetail' => $this->faker->numberBetween($min = 1, $max = 20),
+            'estado' => "En Transito",
             'selectivo' => $this->faker->numberBetween($min = 0, $max = 2),
         ];
     }

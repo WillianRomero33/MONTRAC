@@ -39,15 +39,8 @@ class ImportController extends Controller
         $transport = new TransportStatus();
         $transport->id_transport = $request->id_medio;
         $transport->id_origindetail = $request->id_origin;
+        $transport->estado = "En Transito";
         $transport->save();
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
     }
 
     /**
@@ -91,7 +84,8 @@ class ImportController extends Controller
         //
         $transport = TransportStatus::find($id);
         $transport->inicio_selectivo = now();
-        $transport->update();
+        $transport->estado = "Espera de Selectividad";
+        $transport->update(); 
         return redirect()->route('imports.index');
     }
 }

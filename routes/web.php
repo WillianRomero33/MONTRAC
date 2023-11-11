@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImportController;
+use App\Http\Controllers\AduanaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,3 +56,18 @@ Route::resource('import', ImportController::class)
 		'submit' => 'imports.submit',
 ]);
 Route::get('import/submit/{id}', [ImportController::class, 'submit'])->name('imports.submit');
+
+Route::resource('aduana', AduanaController::class)
+	->only(['index', 'create', 'store', 'report', 'edit', 'update', 'destroy', 'submit'])
+	->names([
+		'index' => 'aduanas.index',
+		'create' => 'aduanas.create',
+		'store' => 'aduanas.store',
+		'report' => 'aduanas.report',
+		'edit' => 'aduanas.edit',
+		'update' => 'aduanas.update',
+		'destroy' => 'aduanas.destroy',
+		'transito' => 'aduanas.transito',
+]);
+Route::get('aduana/transito/{id}', [AduanaController::class, 'transito'])->name('aduanas.transito');
+Route::get('aduana/selectivo/{id}', [AduanaController::class, 'selectivo'])->name('aduanas.selectivo');

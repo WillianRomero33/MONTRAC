@@ -9,6 +9,7 @@ class TransportStatus extends Model
 {
     use HasFactory;
     protected $fillable = ['id_transport','id_origindetail',
+        'estado',
         'selectivo',
         'inicio_transito',
         'fin_transito',

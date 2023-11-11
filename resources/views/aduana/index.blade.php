@@ -1,12 +1,11 @@
-@extends('layouts.app', ['pageSlug' => 'dashboard'])
+@extends('layouts.app', ['pageSlug' => 'maps'])
 
 @section('content')
-<a href="{{ route('imports.create') }}" class="btn btn-fill btn-round btn-primary mb-5">Nuevo</a>
 <div class="row">
   <div class="col-md-12">
     <div class="card ">
       <div class="card-header">
-        <h4 class="card-title">Import / Export</h4>
+        <h4 class="card-title">Aduana</h4>
       </div>
       <div class="card-body">
         <table class="table tablesorter " id="Placa">
@@ -17,9 +16,9 @@
               <th>Pais</th>
               <th>Empresa</th>
               <th>Estado</th>
+              <th>Finalizar transito</th>
               <th>Selectivo</th>
-              <th>Submit</th>
-              <th>Acciones</th>
+              <th>Finalizar Selectivo</th>
             </tr>
           </thead>
           <tbody>
@@ -30,14 +29,21 @@
                 <td> {{ $transport->origins->countries->pais}} </td>
                 <td> {{ $transport->origins->companies->empresa}} </td>
                 <td> {{ $transport->estado}} </td>
+                <td>
+                  @if ($transport->inicio_transito!=NULL && $transport->fin_transito === NULL)
+                    <a href="{{ route('aduanas.transito', $transport->id) }}" class="btn btn-success btn-icon">
+                      <i class="tim-icons icon-check-2"></i>
+                    </a>
+                  @endif
+                </td>
                 <td> @if ($transport->selectivo === 0) {{"Verde"}} 
                     @elseif ($transport->selectivo === 1) {{"Amarillo"}}
                     @elseif ($transport->selectivo === 2) {{"Rojo"}}
                     @else {{"N/A"}} @endif
                 </td>
                 <td>
-                  @if ($transport->fin_transito!=NULL && $transport->inicio_selectivo===NULL)
-                    <a href="{{ route('imports.submit', $transport->id) }}" class="btn btn-success btn-icon">
+                  @if ($transport->inicio_selectivo!==NULL && $transport->selectivo !==NULL && $transport->fin_revision === NULL)
+                    <a href="{{ route('aduanas.selectivo', $transport->id) }}" class="btn btn-success btn-icon">
                       <i class="tim-icons icon-check-2"></i>
                     </a>
                   @endif
@@ -49,12 +55,7 @@
                       Más
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a href="{{ route('imports.edit', $transport->id) }}" class="dropdown-item text-info">Editar</a>
-                      <form action="{{ route('imports.destroy', $transport->id) }}" method="POST" class="inline">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="dropdown-item text-danger" id="delete">Eliminar</button>
-                      </form>
+                      <a href="{{ route('aduanas.edit', $transport->id) }}" class="dropdown-item text-info">Asignar Selectivo</a>
                       {{-- !-- Button trigger modal --> --}}
                       <button type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModal{{$transport->id}}">
                         Ver Detalles
@@ -62,8 +63,8 @@
                     </div>
                   </div>
                 </td>
-
               </tr>
+              
               {{-- <-- Modal --> --}}
               <div class="modal fade" id="exampleModal{{$transport->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
