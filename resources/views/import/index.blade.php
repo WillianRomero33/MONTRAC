@@ -31,9 +31,9 @@
                 <td> {{ $transport->origins->countries->pais}} </td>
                 <td> {{ $transport->origins->companies->empresa}} </td>
                 <td> {{ $transport->estado}} </td>
-                <td> @if ($transport->selectivo === 0) {{"Verde"}} 
-                    @elseif ($transport->selectivo === 1) {{"Amarillo"}}
-                    @elseif ($transport->selectivo === 2) {{"Rojo"}}
+                <td> @if ($transport->selectivo === 1) {{"Verde"}} 
+                    @elseif ($transport->selectivo === 2) {{"Amarillo"}}
+                    @elseif ($transport->selectivo === 3) {{"Rojo"}}
                     @else {{"N/A"}} @endif
                 </td>
                 <td>
@@ -79,6 +79,7 @@
                         <!-- Modal Body -->
                         <div class="text-primary">
                           <p>{{'Inicio de tránsito: '.$transport->inicio_transito}}</p>
+                          <p>{{'Ingreso a Zona Franca: '.$transport->ingreso_zf}}</p>
                           <p>{{'Fin de tránsito: '.$transport->fin_transito}}</p>
                           <p>{{'Inicio de selectivo: '.$transport->inicio_selectivo}}</p>
                           <p>{{'Fin de selectivo: '.$transport->fin_selectivo}}</p>

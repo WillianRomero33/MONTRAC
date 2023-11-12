@@ -12,6 +12,7 @@ class TransportStatus extends Model
         'estado',
         'selectivo',
         'inicio_transito',
+        'ingreso_zf',
         'fin_transito',
         'inicio_selectivo',
         'fin_selectivo',

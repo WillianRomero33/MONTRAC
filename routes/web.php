@@ -50,10 +50,12 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('vigilancia', [VigilanciaController::class, 'index'])->name('vigilancia.index');
 Route::post('vigilancia/confirmar/{id}', [VigilanciaController::class, 'confirmarIngreso'])->name('vigilancia.confirmarIngreso');
 
-Route::get('bodega',[BodegaController::class, 'index'])->name('bodega.bodega');
+// Rutas bodega
+Route::get('bodega',[BodegaController::class, 'index'])->name('bodega.index');
 Route::get('/bodega/{id}/edit', [BodegaController::class, 'edit'])->name('bodega.edit');
 Route::get('/bodega/{id}/submit', [BodegaController::class, 'submit'])->name('bodega.submit');
 
+// Rutas Import
 Route::resource('import', ImportController::class)
 	->only(['index', 'create', 'store', 'report', 'edit', 'update', 'destroy', 'submit'])
 	->names([
@@ -69,6 +71,7 @@ Route::resource('import', ImportController::class)
 Route::get('import/submit/{id}', [ImportController::class, 'submit'])->name('imports.submit');
 Route::get('import/report', [ImportController::class, 'report'])->name('imports.report');
 
+// Rutas Aduana
 Route::resource('aduana', AduanaController::class)
 	->only(['index', 'create', 'store', 'report', 'edit', 'update', 'destroy', 'submit'])
 	->names([

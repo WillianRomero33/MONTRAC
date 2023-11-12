@@ -6,6 +6,7 @@
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accesibility.js"></script>
 
+
 @section('content')
     <div class="row">
         <div class="col-12">
@@ -35,7 +36,8 @@
     <script type="text/javascript">
         var estado = <?php echo json_encode($estados); ?>;
         var category = <?php echo json_encode($categories); ?>;
-        var selectivo = <?php echo json_encode($selectivos); ?>;
+        var selectivo = <?php echo json_encode($selectivos_text); ?>;
+        var count_selectivo = <?php echo json_encode($count_selectivos); ?>;
         var count_empresas = <?php echo json_encode($count_empresas); ?>;
         var empresas = <?php echo json_encode($empresas); ?>;
       
@@ -141,7 +143,7 @@
               }
           },
           xAxis: {
-              categories: ['Verde', 'Amarillo', 'Rojo'],
+              categories: selectivo,
               title: {
                   text: null
               },
@@ -187,7 +189,7 @@
           },
           series: [{
               name: 'Conteo',
-              data: selectivo
+              data: count_selectivo
           }]
       });
 

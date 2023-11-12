@@ -17,6 +17,7 @@ class OriginDetail extends Model
     public function companies(){
         return $this->belongsTo(Company::class, 'id_empresa');
     }
+    
     public function transports(){
         return $this->hasMany(Transport::class, 'id_transport');
     }

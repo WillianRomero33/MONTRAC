@@ -2,9 +2,9 @@
 {{-- Creacion de un diccionario para imprimir el texto de los selectivos --}}
 @php
   $selectText = array(
-    0 => "Verde",
-    1 => "Amarillo",
-    2 => "Rojo",
+    1 => "Verde",
+    2 => "Amarillo",
+    3 => "Rojo",
   )
 @endphp
 @section('content')
@@ -32,7 +32,7 @@
       <div class="form-group">
         <label for="selectivo">Origen</label>
         <select class="form-control" name="selectivo" id="selectivo" required>
-          @for ($i = 0; $i <= 2; $i++)
+          @for ($i = 1; $i <= 3; $i++)
             <option class="text-primary" value="{{ $i }}" @if ($transport->selectivo === $i) selected @endif>{{ $selectText[$i] }}</option>  
           @endfor
         </select>

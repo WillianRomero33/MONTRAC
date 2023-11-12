@@ -19,9 +19,7 @@ class BodegaController extends Controller
     {
         //
         $transport_status = TransportStatus::with('transports','origins')->paginate(7);
-        // $transports = Transport::all();
-        // $origins = OriginDetail::all();
-        return view('bodega/bodega', compact('transport_status'));
+        return view('bodega.index', compact('transport_status'));
     }
     /**
      * Show the form for creating a new resource.
@@ -69,19 +67,12 @@ class BodegaController extends Controller
         $transports->id_transport = $request->id_medio;
         $transports->id_origindetail = $request->id_origin;
         $transports->update();
-        return redirect()->route('bodega.bodega');
+        return redirect()->route('bodega.index');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Confirma la descarga de un medio
      */
-    public function destroy(string $id)
-    {
-        //
-        $transports = TransportStatus::find($id);
-        $transports->delete();
-        return redirect()->route('bodega.bodega');
-    }
 
     public function submit(string $id)
     {
@@ -89,7 +80,7 @@ class BodegaController extends Controller
         $transports->descarga = now();
         $transports->estado = 'Descargado';
         $transports->update();
-        return redirect()->route('bodega.bodega');
+        return redirect()->route('bodega.index');
     }
 
 }

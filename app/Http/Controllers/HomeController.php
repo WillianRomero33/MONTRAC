@@ -40,6 +40,32 @@ class HomeController extends Controller
                     ->pluck('conteo');
 
         $selectivos = DB::table('transport_statuses')
+                    ->select('selectivo')
+                    ->groupBy('selectivo')
+                    ->orderBy('selectivo')
+                    ->pluck('selectivo');
+        
+        $selectivos_text = collect();
+        foreach ($selectivos as $selectivo) {
+            switch ($selectivo) {
+                case 0:
+                    $selectivos_text->push("Sin Selectivo");
+                    break;
+                case 1:
+                    $selectivos_text->push("Verde");
+                    break;
+                case 2:
+                    $selectivos_text->push("Amarillo");
+                    break;
+                case 3:
+                    $selectivos_text->push("Rojo");
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        $count_selectivos = DB::table('transport_statuses')
                     ->select(DB::RAW('COUNT(id) as conteo'))
                     ->groupBy('selectivo')
                     ->orderBy('selectivo')
@@ -58,6 +84,6 @@ class HomeController extends Controller
                     ->groupBy('empresa')
                     ->orderBy('empresa')
                     ->pluck('empresa');
-        return view('dashboard', compact('categories', 'estados','selectivos','count_empresas','empresas'));
+        return view('dashboard', compact('categories', 'estados','selectivos_text','count_selectivos','count_empresas','empresas'));
     }
 }

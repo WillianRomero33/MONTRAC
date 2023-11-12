@@ -1,6 +1,6 @@
-@extends('layouts.app', ['page' => __('Tables'), 'pageSlug' => 'tables']) 
-@section('content')
+@extends('layouts.app', ['pageSlug' => 'bodega']) 
 
+@section('content')
 <div class="row">
   <div class="col-md-12">
     <div class="card ">
@@ -8,7 +8,6 @@
         <h4 class="card-title"> Simple Table</h4>
       </div>
       <div class="card-body">
-        <div class="table-responsive">
           <table class="table tablesorter " id="">
             <thead class=" text-primary">
               <tr>
@@ -30,9 +29,9 @@
                 <td> {{$status->origins->countries->pais}} </td>
                 <td> {{$status->origins->companies->empresa}} </td>
                 <td> {{$status->estado}}</td>
-                <td> @if ($status->selectivo === 0) {{"Verde"}} 
-                  @elseif ($status->selectivo === 1) {{"Amarillo"}}
-                  @elseif ($status->selectivo === 2) {{"Rojo"}}
+                <td> @if ($status->selectivo === 1) {{"Verde"}} 
+                  @elseif ($status->selectivo === 2) {{"Amarillo"}}
+                  @elseif ($status->selectivo === 3) {{"Rojo"}}
                   @else {{"N/A"}} @endif
                 </td>
                 <td>
@@ -72,6 +71,7 @@
                         <!-- Modal Body -->
                         <div class="text-primary">
                           <p>{{'Inicio de tránsito: '.$status->inicio_transito}}</p>
+                          <p>{{'Ingreso a Zona Franca: '.$status->ingreso_zf}}</p>
                           <p>{{'Fin de tránsito: '.$status->fin_transito}}</p>
                           <p>{{'Inicio de selectivo: '.$status->inicio_selectivo}}</p>
                           <p>{{'Fin de selectivo: '.$status->fin_selectivo}}</p>
@@ -89,7 +89,6 @@
             </tbody>
           </table>
           {{ $transport_status->links() }}
-        </div>
       </div>
     </div>
   </div>

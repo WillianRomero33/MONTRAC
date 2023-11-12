@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('estado')->nullable();
             $table->smallinteger('selectivo')->nullable();
             $table->dateTime('inicio_transito')->nullable();
+            $table->dateTime('ingreso_zf')->nullable();
             $table->dateTime('fin_transito')->nullable();
             $table->dateTime('inicio_selectivo')->nullable();
             $table->dateTime('fin_selectivo')->nullable();

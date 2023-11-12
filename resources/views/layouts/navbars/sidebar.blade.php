@@ -24,13 +24,13 @@
                 </a>
             </li>
             <li @if ($pageSlug == 'bodega') class="active " @endif>
-                <a href="{{ route('imports.index') }}">
+                <a href="{{ route('bodega.index') }}">
                     <i class="tim-icons icon-delivery-fast"></i>
                     <p>{{ __('Bodega') }}</p>
                 </a>
             </li>
             <li @if ($pageSlug == 'vigilancia') class="active " @endif>
-                <a href="{{ route('imports.index') }}">
+                <a href="{{ route('vigilancia.index') }}">
                     <i class="tim-icons icon-bank"></i>
                     <p>{{ __('Vigilancia') }}</p>
                 </a>

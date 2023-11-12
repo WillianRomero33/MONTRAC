@@ -28,9 +28,9 @@
               <td class="px-2 py-1"> {{ $transport->origins->countries->pais}} </td>
               <td class="px-2 py-1"> {{ $transport->origins->companies->empresa}} </td>
               <td class="px-2 py-1"> {{ $transport->estado}} </td>
-              <td class="px-2 py-1"> @if ($transport->selectivo === 0) {{"Verde"}} 
-                  @elseif ($transport->selectivo === 1) {{"Amarillo"}}
-                  @elseif ($transport->selectivo === 2) {{"Rojo"}}
+              <td class="px-2 py-1"> @if ($transport->selectivo === 1) {{"Verde"}} 
+                  @elseif ($transport->selectivo === 2) {{"Amarillo"}}
+                  @elseif ($transport->selectivo === 3) {{"Rojo"}}
                   @else {{"N/A"}} @endif
               </td>
               <td class="px-2 py-1"> {{$transport->fin_revision}} </td>

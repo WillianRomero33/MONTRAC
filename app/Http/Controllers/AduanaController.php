@@ -56,17 +56,17 @@ class AduanaController extends Controller
         $transport = TransportStatus::find($id);
         $transport->selectivo = $request->selectivo;
         switch ($transport->selectivo) {
-            case 0:
+            case 1:
                 $transport->fin_selectivo = now();
                 $transport->fin_revision = now();
                 $transport->estado = "Listo para Descarga";
                 break;
-            case 1:
+            case 2:
                 $transport->fin_selectivo = now();
                 $transport->fin_revision = NULL;
                 $transport->estado = "En Revisión";
                 break;
-            case 2:
+            case 3:
                 $transport->fin_selectivo = now();
                 $transport->fin_revision = NULL;
                 $transport->estado = "En Revisión";
@@ -92,7 +92,7 @@ class AduanaController extends Controller
         //
         $transport = TransportStatus::find($id);
         $transport->fin_transito = now();
-        $transport->estado = "En Zona Franca";
+        $transport->estado = "Transito Finalizado";
         $transport->update();
         return redirect()->route('aduanas.index');
     }
