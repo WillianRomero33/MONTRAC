@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BodegaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImportController;
 use App\Http\Controllers\AduanaController;
@@ -42,6 +43,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });
+
+Route::get('bodega',[BodegaController::class, 'index'])->name('bodega.bodega');
+Route::get('/bodega/{id}/edit', [BodegaController::class, 'edit'])->name('bodega.edit');
+Route::get('/bodega/{id}/submit', [BodegaController::class, 'submit'])->name('bodega.submit');
 
 Route::resource('import', ImportController::class)
 	->only(['index', 'create', 'store', 'report', 'edit', 'update', 'destroy', 'submit'])

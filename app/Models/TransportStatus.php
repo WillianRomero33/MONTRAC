@@ -26,4 +26,5 @@ class TransportStatus extends Model
     public function origins(){
         return $this->belongsTo(OriginDetail::class, 'id_origindetail');
     }
+    
 }
