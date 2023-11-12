@@ -1,8 +1,8 @@
 <div class="sidebar">
     <div class="sidebar-wrapper">
         <div class="logo">
-            <a href="#" class="simple-text logo-mini">{{ __('BD') }}</a>
-            <a href="#" class="simple-text logo-normal">{{ __('Black Dashboard') }}</a>
+            <a href="#" class="simple-text logo-mini">{{ __('MONTRAC') }}</a>
+            <a href="#" class="simple-text logo-normal">{{ __('Sistema Aduana') }}</a>
         </div>
         <ul class="nav">
             <li @if ($pageSlug == 'dashboard') class="active " @endif>
@@ -11,78 +11,34 @@
                     <p>{{ __('Dashboard') }}</p>
                 </a>
             </li>
-            <li>
-                    <!-- Add a button for the vigilancia view -->
-                    <li @if ($pageSlug == 'vigilancia') class="active " @endif>
-                        <a href="{{ route('vigilancia.index') }}">
-                            <i class="tim-icons icon-puzzle-10"></i>
-                            <p>{{ __('Vigilancia') }}</p>
-                        </a>
-                    </li>
-                    
-                <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
-                    <i class="fab fa-laravel" ></i>
-                    <span class="nav-link-text" >{{ __('Laravel Examples') }}</span>
-                    <b class="caret mt-1"></b>
-                </a>
-
-                <div class="collapse show" id="laravel-examples">
-                    <ul class="nav pl-4">
-                        <li @if ($pageSlug == 'profile') class="active " @endif>
-                            <a href="{{ route('profile.edit')  }}">
-                                <i class="tim-icons icon-single-02"></i>
-                                <p>{{ __('User Profile') }}</p>
-                            </a>
-                        </li>
-                        <li @if ($pageSlug == 'users') class="active " @endif>
-                            <a href="{{ route('user.index')  }}">
-                                <i class="tim-icons icon-bullet-list-67"></i>
-                                <p>{{ __('User Management') }}</p>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li @if ($pageSlug == 'icons') class="active " @endif>
-                <a href="{{ route('pages.icons') }}">
-                    <i class="tim-icons icon-atom"></i>
-                    <p>{{ __('Icons') }}</p>
+            <li @if ($pageSlug == 'import') class="active " @endif>
+                <a href="{{ route('imports.index') }}">
+                    <i class="tim-icons icon-single-copy-04"></i>
+                    <p>{{ __('Import') }}</p>
                 </a>
             </li>
-            <li @if ($pageSlug == 'maps') class="active " @endif>
-                <a href="{{ route('pages.maps') }}">
-                    <i class="tim-icons icon-pin"></i>
-                    <p>{{ __('Maps') }}</p>
+            <li @if ($pageSlug == 'aduana') class="active " @endif>
+                <a href="{{ route('aduanas.index') }}">
+                    <i class="tim-icons icon-bullet-list-67"></i>
+                    <p>{{ __('Aduana') }}</p>
                 </a>
             </li>
-            <li @if ($pageSlug == 'notifications') class="active " @endif>
-                <a href="{{ route('pages.notifications') }}">
-                    <i class="tim-icons icon-bell-55"></i>
-                    <p>{{ __('Notifications') }}</p>
+            <li @if ($pageSlug == 'bodega') class="active " @endif>
+                <a href="{{ route('imports.index') }}">
+                    <i class="tim-icons icon-delivery-fast"></i>
+                    <p>{{ __('Bodega') }}</p>
                 </a>
             </li>
-            <li @if ($pageSlug == 'tables') class="active " @endif>
-                <a href="{{ route('pages.tables') }}">
-                    <i class="tim-icons icon-puzzle-10"></i>
-                    <p>{{ __('Table List') }}</p>
+            <li @if ($pageSlug == 'vigilancia') class="active " @endif>
+                <a href="{{ route('imports.index') }}">
+                    <i class="tim-icons icon-bank"></i>
+                    <p>{{ __('Vigilancia') }}</p>
                 </a>
             </li>
-            <li @if ($pageSlug == 'typography') class="active " @endif>
-                <a href="{{ route('pages.typography') }}">
-                    <i class="tim-icons icon-align-center"></i>
-                    <p>{{ __('Typography') }}</p>
-                </a>
-            </li>
-            <li @if ($pageSlug == 'rtl') class="active " @endif>
-                <a href="{{ route('pages.rtl') }}">
-                    <i class="tim-icons icon-world"></i>
-                    <p>{{ __('RTL Support') }}</p>
-                </a>
-            </li>
-            <li class=" {{ $pageSlug == 'upgrade' ? 'active' : '' }} bg-info">
-                <a href="{{ route('pages.upgrade') }}">
-                    <i class="tim-icons icon-spaceship"></i>
-                    <p>{{ __('Upgrade to PRO') }}</p>
+            <li @if ($pageSlug == 'transporte') class="active " @endif>
+                <a href="{{ route('imports.index') }}">
+                    <i class="tim-icons icon-bus-front-12"></i>
+                    <p>{{ __('Transportes') }}</p>
                 </a>
             </li>
         </ul>

@@ -9,6 +9,8 @@ class TransportStatus extends Model
 {
     use HasFactory;
     protected $fillable = ['id_transport','id_origindetail',
+        'estado',
+        'selectivo',
         'inicio_transito',
         'fin_transito',
         'inicio_selectivo',
@@ -17,11 +19,12 @@ class TransportStatus extends Model
         'descarga',
     ];
 
-    public function transport(){
-        return $this->belongsTo(Transport::class);
+    public function transports(){
+        return $this->belongsTo(Transport::class, 'id_transport');
     }
 
-    public function OriginDetail(){
-        return $this->belongsTo(OriginDetail::class);
+    public function origins(){
+        return $this->belongsTo(OriginDetail::class, 'id_origindetail');
     }
+    
 }

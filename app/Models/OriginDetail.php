@@ -10,14 +10,14 @@ class OriginDetail extends Model
     use HasFactory;
     protected $fillable = ['id_pais', 'id_empresa'];
 
-    public function country(){
-        return $this->hasMany(Country::class, 'id_pais');
+    public function countries(){
+        return $this->belongsTo(Country::class, 'id_pais');
     }
 
-    public function company(){
-        return $this->hasMany(Company::class, 'id_empresa');
+    public function companies(){
+        return $this->belongsTo(Company::class, 'id_empresa');
     }
-    public function transport(){
+    public function transports(){
         return $this->hasMany(Transport::class, 'id_transport');
     }
 }
