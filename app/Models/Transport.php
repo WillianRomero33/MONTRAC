@@ -10,8 +10,8 @@ class Transport extends Model
     use HasFactory;
     protected $fillable = ['placa', 'tipo'];
 
-    public function originDetail(){
-        return $this->belongsTo(OriginDetail::class);
+    public function transports(){
+        return $this->hasMany(TransportStatus::class, 'id_transport');
     }
 
 }
