@@ -91,7 +91,7 @@
               gridLineWidth: 0
           },
           plotOptions: {
-              bar: {
+              column: {
                   borderRadius: '50%',
                   dataLabels: {
                       enabled: true

@@ -17,7 +17,7 @@ class ImportController extends Controller
     {
         //
         $transports = TransportStatus::orderByDesc('inicio_transito')
-                        ->paginate(7);
+                        ->paginate(8);
         return view('import.index', compact('transports'));
     }
 

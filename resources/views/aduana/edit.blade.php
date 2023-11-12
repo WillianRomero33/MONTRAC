@@ -32,6 +32,7 @@
       <div class="form-group">
         <label for="selectivo">Origen</label>
         <select class="form-control" name="selectivo" id="selectivo" required>
+          <option value="" selected disabled hidden>Seleccione el selectivo</option>
           @for ($i = 1; $i <= 3; $i++)
             <option class="text-primary" value="{{ $i }}" @if ($transport->selectivo === $i) selected @endif>{{ $selectText[$i] }}</option>  
           @endfor

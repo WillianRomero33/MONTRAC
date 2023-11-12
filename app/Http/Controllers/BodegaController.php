@@ -18,7 +18,7 @@ class BodegaController extends Controller
     public function index()
     {
         //
-        $transport_status = TransportStatus::with('transports','origins')->paginate(7);
+        $transport_status = TransportStatus::with('transports','origins')->paginate(10);
         return view('bodega.index', compact('transport_status'));
     }
     /**

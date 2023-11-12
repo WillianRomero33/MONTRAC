@@ -15,7 +15,7 @@ class AduanaController extends Controller
     public function index()
     {
         //
-        $transports = TransportStatus::orderByDesc('inicio_transito')->where('inicio_transito','!=', null)->paginate(7);
+        $transports = TransportStatus::orderByDesc('inicio_transito')->paginate(10);
         return view('aduana.index', compact('transports'));
     }
 

@@ -55,7 +55,9 @@
                       Más
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a href="{{ route('aduanas.edit', $transport->id) }}" class="dropdown-item text-info">Asignar Selectivo</a>
+                      @if ($transport->estado == "Espera de Selectivo" || $transport->estado == "En Revisión")
+                        <a href="{{ route('aduanas.edit', $transport->id) }}" class="dropdown-item text-info">Asignar Selectivo</a>
+                      @endif
                       {{-- !-- Button trigger modal --> --}}
                       <button type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModal{{$transport->id}}">
                         Ver Detalles
