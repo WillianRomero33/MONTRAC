@@ -19,7 +19,7 @@ class TransportFactory extends Factory
         return [
             //
             'placa'=> $this->faker->unique()->bothify('??#######'),
-            'tipo' => $this->faker->randomElement($array = array ('Furgón','Contenedor','Camión','Pic-up')),
+            'tipo' => $this->faker->randomElement($array = array ('Furgón','Contenedor','Camión','Pick-up')),
         ];
     }
 }

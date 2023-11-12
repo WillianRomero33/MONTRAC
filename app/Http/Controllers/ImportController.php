@@ -41,8 +41,10 @@ class ImportController extends Controller
         $transport = new TransportStatus();
         $transport->id_transport = $request->id_medio;
         $transport->id_origindetail = $request->id_origin;
+        $transport->inicio_transito = now();
         $transport->estado = "En Transito";
         $transport->save();
+        return redirect()->route('imports.index');
     }
 
     /**
