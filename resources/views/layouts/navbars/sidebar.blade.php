@@ -12,6 +12,14 @@
                 </a>
             </li>
             <li>
+                    <!-- Add a button for the vigilancia view -->
+                    <li @if ($pageSlug == 'vigilancia') class="active " @endif>
+                        <a href="{{ route('vigilancia.index') }}">
+                            <i class="tim-icons icon-puzzle-10"></i>
+                            <p>{{ __('Vigilancia') }}</p>
+                        </a>
+                    </li>
+                    
                 <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
                     <i class="fab fa-laravel" ></i>
                     <span class="nav-link-text" >{{ __('Laravel Examples') }}</span>

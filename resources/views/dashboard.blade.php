@@ -1,5 +1,20 @@
 @extends('layouts.app', ['pageSlug' => 'dashboard'])
 
+    <!-- Add a button for the vigilancia view -->
+    {{-- <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Vigilancia</h5>
+                </div>
+                <div class="card-body">
+                    <p>Click the button below to go to the Vigilancia view:</p>
+                    <a href="{{ route('vigilancia.index') }}" class="btn btn-primary">Go to Vigilancia</a>
+                </div>
+            </div>
+        </div>
+    </div> --}}
+
 @section('content')
     <div class="row">
         <div class="col-12">
@@ -37,6 +52,8 @@
                         </div>
                     </div>
                 </div>
+
+
                 <div class="card-body">
                     <div class="chart-area">
                         <canvas id="chartBig1"></canvas>

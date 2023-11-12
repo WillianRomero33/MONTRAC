@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\VigilanciaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,3 +42,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });
 
+// Nuevas rutas para Vigilancia
+Route::get('vigilancia', [VigilanciaController::class, 'index'])->name('vigilancia.index');
+Route::post('vigilancia/confirmar/{id}', [VigilanciaController::class, 'confirmarIngreso'])->name('vigilancia.confirmarIngreso');
