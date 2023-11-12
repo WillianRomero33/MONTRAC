@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\VigilanciaController;
 use App\Http\Controllers\ImportController;
 use App\Http\Controllers\AduanaController;
-
+use App\Http\Controllers\TransportController;
+use App\Http\Controllers\OriginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -73,16 +74,38 @@ Route::get('import/report', [ImportController::class, 'report'])->name('imports.
 
 // Rutas Aduana
 Route::resource('aduana', AduanaController::class)
-	->only(['index', 'create', 'store', 'report', 'edit', 'update', 'destroy', 'submit'])
+	->only(['index', 'create', 'store', 'edit', 'update', 'destroy'])
 	->names([
 		'index' => 'aduanas.index',
 		'create' => 'aduanas.create',
 		'store' => 'aduanas.store',
-		'report' => 'aduanas.report',
 		'edit' => 'aduanas.edit',
 		'update' => 'aduanas.update',
 		'destroy' => 'aduanas.destroy',
-		'transito' => 'aduanas.transito',
 ]);
 Route::get('aduana/transito/{id}', [AduanaController::class, 'transito'])->name('aduanas.transito');
 Route::get('aduana/selectivo/{id}', [AduanaController::class, 'selectivo'])->name('aduanas.selectivo');
+
+// Rutas de Transrpote
+Route::resource('transport', TransportController::class)
+	->only(['index', 'create', 'store', 'edit', 'update', 'destroy'])
+	->names([
+		'index' => 'transports.index',
+		'create' => 'transports.create',
+		'store' => 'transports.store',
+		'edit' => 'transports.edit',
+		'update' => 'transports.update',
+		'destroy' => 'transports.destroy',
+]);
+
+// Rutas de Origenes
+Route::resource('origin', OriginController::class)
+	->only(['index', 'create', 'store', 'edit', 'update', 'destroy'])
+	->names([
+		'index' => 'origins.index',
+		'create' => 'origins.create',
+		'store' => 'origins.store',
+		'edit' => 'origins.edit',
+		'update' => 'origins.update',
+		'destroy' => 'origins.destroy',
+]);

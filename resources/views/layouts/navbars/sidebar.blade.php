@@ -36,9 +36,15 @@
                 </a>
             </li>
             <li @if ($pageSlug == 'transporte') class="active " @endif>
-                <a href="{{ route('imports.index') }}">
+                <a href="{{ route('transports.index') }}">
                     <i class="tim-icons icon-bus-front-12"></i>
                     <p>{{ __('Transportes') }}</p>
+                </a>
+            </li>
+            <li @if ($pageSlug == 'origen') class="active " @endif>
+                <a href="{{ route('origins.index') }}">
+                    <i class="tim-icons icon-notes"></i>
+                    <p>{{ __('Origenes') }}</p>
                 </a>
             </li>
         </ul>
