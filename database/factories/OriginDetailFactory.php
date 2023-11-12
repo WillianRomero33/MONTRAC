@@ -2,10 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\OriginDetail;
-use App\Models\Country;
-use App\Models\Company;
-
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -13,13 +9,17 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class OriginDetailFactory extends Factory
 {
-    protected $model = OriginDetail::class;
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
     public function definition(): array
     {
         return [
-            'id_pais'=> $this->faker->numberBetween($min = 1, $max = 24),
-            'id_empresa' => $this->faker->numberBetween($min = 1, $max = 24),
-            // Otros campos de la tabla Origin
+            //
+            'id_pais'=> $this->faker->numberBetween($min = 1, $max = 20),
+            'id_empresa' => $this->faker->numberBetween($min = 1, $max = 20),
         ];
     }
 }

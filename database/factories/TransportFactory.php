@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\OriginDetail;
+
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Transport>
  */
@@ -20,7 +20,6 @@ class TransportFactory extends Factory
             //
             'placa'=> $this->faker->unique()->bothify('??#######'),
             'tipo' => $this->faker->word(),
-
         ];
     }
 }

@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\BodegaController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ImportController;
+use App\Http\Controllers\AduanaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Auth::routes();
 
@@ -42,11 +44,36 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });
 
-
-Route::get('bodega',[BodegaController::class, 'index'])->name('bodega.bodega'); //
-		
-
+Route::get('bodega',[BodegaController::class, 'index'])->name('bodega.bodega');
 Route::get('/bodega/{id}/edit', [BodegaController::class, 'edit'])->name('bodega.edit');
 Route::get('/bodega/{id}/submit', [BodegaController::class, 'submit'])->name('bodega.submit');
 
+Route::resource('import', ImportController::class)
+	->only(['index', 'create', 'store', 'report', 'edit', 'update', 'destroy', 'submit'])
+	->names([
+		'index' => 'imports.index',
+		'create' => 'imports.create',
+		'store' => 'imports.store',
+		'report' => 'imports.report',
+		'edit' => 'imports.edit',
+		'update' => 'imports.update',
+		'destroy' => 'imports.destroy',
+		'submit' => 'imports.submit',
+]);
+Route::get('import/submit/{id}', [ImportController::class, 'submit'])->name('imports.submit');
+Route::get('import/report', [ImportController::class, 'report'])->name('imports.report');
 
+Route::resource('aduana', AduanaController::class)
+	->only(['index', 'create', 'store', 'report', 'edit', 'update', 'destroy', 'submit'])
+	->names([
+		'index' => 'aduanas.index',
+		'create' => 'aduanas.create',
+		'store' => 'aduanas.store',
+		'report' => 'aduanas.report',
+		'edit' => 'aduanas.edit',
+		'update' => 'aduanas.update',
+		'destroy' => 'aduanas.destroy',
+		'transito' => 'aduanas.transito',
+]);
+Route::get('aduana/transito/{id}', [AduanaController::class, 'transito'])->name('aduanas.transito');
+Route::get('aduana/selectivo/{id}', [AduanaController::class, 'selectivo'])->name('aduanas.selectivo');
