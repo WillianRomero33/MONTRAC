@@ -1,14 +1,20 @@
 @extends('layouts.app', ['pageSlug' => 'import'])
 
 @section('content')
-<a href="{{ route('imports.create') }}" class="btn btn-fill btn-round btn-primary mb-3">Nuevo</a>
-<a href="{{ route('imports.report') }}" class="btn btn-fill btn-round btn-primary mb-3 ml-2">Reporte</a>
 <div class="row">
   <div class="col-md-12">
-    <div class="card ">
+    <div class="card">
       <div class="card-header">
-        <h4 class="card-title">Import / Export</h4>
-      </div>
+        <div class="row">
+          <div class="col-8">
+            <h4 class="card-title">Import / Export</h4>
+          </div>
+          <div class="col-4 text-right">
+            <a href="{{ route('imports.create') }}" class="btn btn-round btn-primary">Nuevo</a>
+            <a href="{{ route('imports.report') }}" class="btn btn-round btn-primary ml-2">Reporte</a>
+          </div>
+        </div>
+        </div>
       <div class="card-body">
         <table class="table tablesorter " id="Placa">
           <thead class=" text-primary">
