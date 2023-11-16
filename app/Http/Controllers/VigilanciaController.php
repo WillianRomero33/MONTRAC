@@ -9,7 +9,7 @@ class VigilanciaController extends Controller
 {
     public function index()
     {
-        $data = TransportStatus::with('transports','origins')->paginate(10);
+        $data = TransportStatus::orderByDesc('inicio_transito')->paginate(10);
         return view('vigilancia.index', compact('data'));
     }
 

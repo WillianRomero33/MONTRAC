@@ -34,12 +34,12 @@
         </div>
     </div>
     <script type="text/javascript">
-        var estado = <?php echo json_encode($estados); ?>;
-        var category = <?php echo json_encode($categories); ?>;
-        var selectivo = <?php echo json_encode($selectivos_text); ?>;
-        var count_selectivo = <?php echo json_encode($count_selectivos); ?>;
-        var count_empresas = <?php echo json_encode($count_empresas); ?>;
-        var empresas = <?php echo json_encode($empresas); ?>;
+        var estado = {{ Js::from($estados) }};
+        var category = {{ Js::from($categories) }};
+        var selectivo = {{ Js::from($selectivos_text) }};
+        var count_selectivo = {{ Js::from($count_selectivos) }};
+        var count_empresas = {{ Js::from($count_empresas) }};
+        var empresas = {{ Js::from($empresas) }};
       
         Highcharts.chart('chartEstado', {
           chart: {
