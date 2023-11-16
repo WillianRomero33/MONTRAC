@@ -2,30 +2,38 @@
 
 @section('content')
 <div class="row">
-  <a href="{{ route('origins.create') }}" class="btn btn-fill btn-round btn-primary mb-3">Nuevo Origen</a>
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
-        <h4 class="card-title">Origenes</h4>
+        <div class="row">
+          <div class="col-8">
+            <h4 class="card-title">Origenes</h4>
+          </div>
+          <div class="col-4 text-right">
+            <a href="{{ route('origins.create') }}" class="btn btn-fill btn-round btn-primary">Nuevo Origen</a>
+          </div>
+        </div>
       </div>
       <div class="card-body">
         <table class="table tablesorter " id="Placa">
           <thead class=" text-primary">
             <tr>
-              <th>Empresa</th>
-              <th>País</th>
-              <th>Editar</th>
-              <th>Eliminar</th>
+              <th class="col-1">#</th>
+              <th class="col-5">Empresa</th>
+              <th class="col-4">País</th>
+              <th class="col-1">Editar</th>
+              <th class="col-1">Eliminar</th>
             </tr>
           </thead>
           <tbody>
             @foreach ($origins as $origin)
               <tr>
-                <td> {{ $origin->companies->empresa}} </td>
-                <td> {{ $origin->countries->pais}} </td>
+                <td> {{ $origin->id }} </td>
+                <td> {{ $origin->companies->empresa }} </td>
+                <td> {{ $origin->countries->pais }} </td>
                 <td>
                   <a href="{{ route('origins.edit', $origin->id) }}" class="btn btn-success btn-icon">
-                    <i class="tim-icons icon-check-2"></i>
+                    <i class="tim-icons icon-pencil"></i>
                   </a>
                 </td>
                 <td>
