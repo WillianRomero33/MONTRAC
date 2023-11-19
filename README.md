@@ -27,3 +27,6 @@ Proyecto realizado con el fin de crear una primera version funcional de un Siste
  6. En el archivo ".env" configura el nombre de la base datos, usuario y contraseña.
  7. Realiza las migraciones "_php artisan migrate"_
  8. (Opt) Si deseas tener datos de prueba inciales usa _"php artisan db:seed"_
+
+## Link del proyecto
+El proyecto se encuentra actualmente en linea baje el dominio https://montrac-aduana.online/
